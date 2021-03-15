@@ -2,6 +2,14 @@ body {
     background-color: black;
 }
 
-h1 {
+#titolo {
     color: yellow;
+}
+
+#accadue {
+    color:darksalmon;
+}
+
+#accatre {
+    color: white;
 }

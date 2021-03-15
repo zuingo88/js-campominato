@@ -8,22 +8,68 @@
 
 
 function numberRnd(min, max) {
-    var value = Math.floor(Math.random() * (max - min + min)); //max e min sono inclusi
+
+    var value = Math.floor(Math.random() * (max - min) + min); //max e min sono inclusi
     return value;
+
 };
 
-var arrLoserNumbers = [];
+function esercizio() {
 
-while (arrLoserNumbers.length < 16) {
-    var loserNumber = numberRnd(1, 99);
-    if (arrLoserNumbers.indexOf(loserNumber) === -1) {
-        arrLoserNumbers.push(loserNumber);
+    var arrLoserNumbers = [];
+
+    while (arrLoserNumbers.length < 16) {
+
+        var loserNumber = numberRnd(1, 99);
+
+        if (arrLoserNumbers.indexOf(loserNumber) === -1) {
+
+            arrLoserNumbers.push(loserNumber);
+        }
+
+        arrLoserNumbers.sort(function (a, b) {
+            return a - b;
+        });
     }
-    arrLoserNumbers.sort(function (a, b) {
-         return a - b;
-    });
+
+    console.log(arrLoserNumbers);
+
+    var arrPlayerNumbers = [];
+    var arrLoser = [];
+    var score = 0;
+    var titolo = document.getElementById('titolo');
+    var sottoTitolo = document.getElementById('accadue');
+    var sottoTitolo1 = document.getElementById('accatre');
+
+    for (var i = 0; i < (100 - 16); i++) {
+
+        var playerNumber = parseInt(prompt('Ineserisci un numero'));
+
+        if ((arrPlayerNumbers.indexOf(playerNumber) === -1) && (!arrLoserNumbers.includes(playerNumber)) && ((playerNumber > 0) && (playerNumber < 100))) {
+
+            arrPlayerNumbers.push(playerNumber);
+            score += 1;
+            titolo.innerHTML = 'Il tuo punteggio: ' + score;
+            sottoTitolo.innerHTML = 'I tuoi numeri: ' + arrPlayerNumbers;
+
+            if (score == (100 - 16)) {
+
+                alert('COMPLIMENTI, HAI FINITO IL GIOCO!!!');
+                titolo.innerHTML = 'GIOCO COMPLETATO!';
+
+            }
+
+        } else {
+
+            arrLoser.push(playerNumber);
+            alert('Hai perso!!! muhahahaha');
+            titolo.innerHTML = 'Hai totalizzato ' + score + ' punti';
+            sottoTitolo1.innerHTML = 'Numero perdente: ' + arrLoser;
+            break;
+
+        }
+    }
+
 };
 
-console.log(arrLoserNumbers);
-
-var arrplayerNumbers = [];
+//esercizio();
