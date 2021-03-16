@@ -13,3 +13,21 @@ body {
 #accatre {
     color: white;
 }
+
+#start {
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: yellow;
+    background-color: black;
+    border: solid 2px yellow;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+#start:hover {
+    color: black;
+    text-decoration: underline;
+    background-color: yellow;
+    border: solid 2px yellow;
+}
